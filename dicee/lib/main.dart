@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int leftDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,9 +28,13 @@ class MyApp extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        leftDiceNumber = 5;
+                      });
+                    },
                     child: Image.asset(
-                      'images/dice1.png',
+                      'images/dice$leftDiceNumber.png',
                     ),
                   ),
                 ),
